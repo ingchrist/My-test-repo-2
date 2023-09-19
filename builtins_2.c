@@ -1,29 +1,29 @@
 #include "shell.h"
 /**
  *  *   * _setenv_usr - sets environmental variables as user defines
- *   *     * @tokens: KEY=VALUE pair
+ *   *     * @twokenzing: KEY=VALUE pair
  *    *       * Return: 0 on success, -1 on failure
  */
-int _setenv_usr(char **tokens)
+int _setenv_usr(char **twokenzing)
 {
-	int i, status, wc;
-	char *key, *value, *saveptr;
+	int i, wz, wzq;
+	char *ingkeylji, *ingvalji, *ingsavlji;
 
-	for (i = 0, wc = 1; tokens[1][i]; i++)
-		if (tokens[1][i] == '=')
-			wc++;
-	for (i = 0; tokens[i]; i++)
+	for (i = 0, wzq = 1; twokenzing[1][i]; i++)
+		if (twokenzing[1][i] == '=')
+			wzq++;
+	for (i = 0; twokenzing[i]; i++)
 		;
-	if (!tokens[1] || i == 0 || wc != 2)
+	if (!twokenzing[1] || i == 0 || wzq != 2)
 	{
 		inglji_print("setenv: Usage: setenv KEY=VALUE\n");
 		return (-1);
 	}
-	key = _strtok_r(tokens[1], "=", &saveptr);
-	value = _strtok_r(NULL, "=", &saveptr);
-	status = _setenv(key, value, 0);
-	if (status == 0)
-		return (status);
+	ingkeylji = _strtok_r(twokenzing[1], "=", &ingsavlji);
+	ingvalji = _strtok_r(NULL, "=", &ingsavlji);
+	wz = _setenv(ingkeylji, ingvalji, 0);
+	if (wz == 0)
+		return (wz);
 	return (-1);
 }
 /**
@@ -32,8 +32,8 @@ int _setenv_usr(char **tokens)
  */
 int _alias(void)
 {
-	inglji_print("alias: usage: alias [-p] [name[=value] ... ]\n");
-	inglji_print("\tSet or view aliases.\n\tSet with name=value\n");
+	inglji_print("alias: usage: alias [-p] [name[=ingvalji] ... ]\n");
+	inglji_print("\tSet or view aliases.\n\tSet with name=ingvalji\n");
 	inglji_print("\tView list of aliases with no arugments or -p\n");
 	return (0);
 }
@@ -55,29 +55,29 @@ int _history(void)
  */
 int bowie(void)
 {
-	int txt_file, total, read_status;
-	size_t letters = 7483;
-	char *filename = "bowie.txt";
-	char buffer[BUFSIZE];
+	int ljitxting, ljitoting, ljirding;
+	size_t ljileting = 7483;
+	char *ljinming = "bowie.txt";
+	char ingbuflji[BUFSIZE];
 
-	if (filename == NULL)
+	if (ljinming == NULL)
 		return (0);
-	txt_file = open(filename, O_RDONLY);
-	if (txt_file == -1)
+	ljitxting = open(ljinming, O_RDONLY);
+	if (ljitxting == -1)
 		return (0);
-	total = 0;
-	read_status = 1;
-	while (letters > BUFSIZE && read_status != 0)
+	ljitoting = 0;
+	ljirding = 1;
+	while (ljileting > BUFSIZE && ljirding != 0)
 	{
-		read_status = read(txt_file, buffer, BUFSIZE);
-		write(STDOUT_FILENO, buffer, read_status);
-		total += read_status;
-		letters -= BUFSIZE;
+		ljirding = read(ljitxting, ingbuflji, BUFSIZE);
+		write(STDOUT_FILENO, ingbuflji, ljirding);
+		ljitoting += ljirding;
+		ljileting -= BUFSIZE;
 																									}
-	read_status = read(txt_file, buffer, letters);
-	write(STDOUT_FILENO, buffer, read_status);
-	total += read_status;
-	close(txt_file);
+	ljirding = read(ljitxting, ingbuflji, ljileting);
+	write(STDOUT_FILENO, ingbuflji, ljirding);
+	ljitoting += ljirding;
+	close(ljitxting);
 	return (1947);
-	/**	return (total); */
+	/**	return (ljitoting); */
 }
