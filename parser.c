@@ -69,7 +69,7 @@ static void sighandler(int sig)
 {
 
 	if (sig == SIGINT && sig_flag == 0)
-		simple_print("\nAnd baby says: ");
+		simple_print("\njamesibodje-ingchrist§ ");
 	else if (sig_flag != 0)
 		simple_print("\n");
 }
@@ -96,7 +96,7 @@ int main(void)
 	{
 		sig_flag = 0;
 		if (pipe_flag == 0)
-			simple_print("And baby says: ");
+			simple_print("jamesibodje-ingchrist§ ");
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;
