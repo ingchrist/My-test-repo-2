@@ -69,9 +69,9 @@ static void sighandler(int sig)
 {
 
 	if (sig == SIGINT && sig_flag == 0)
-		simple_print("\njamesibodje-ingchrist§ ");
+		inglji_print("\njamesibodje-ingchrist§ ");
 	else if (sig_flag != 0)
-		simple_print("\n");
+		inglji_print("\n");
 }
 /**
  *   * main - entry point
@@ -96,7 +96,7 @@ int main(void)
 	{
 		sig_flag = 0;
 		if (pipe_flag == 0)
-			simple_print("jamesibodje-ingchrist§ ");
+			inglji_print("jamesibodje-ingchrist§ ");
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;

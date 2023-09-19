@@ -16,7 +16,7 @@ int _setenv_usr(char **tokens)
 		;
 	if (!tokens[1] || i == 0 || wc != 2)
 	{
-		simple_print("setenv: Usage: setenv KEY=VALUE\n");
+		inglji_print("setenv: Usage: setenv KEY=VALUE\n");
 		return (-1);
 	}
 	key = _strtok_r(tokens[1], "=", &saveptr);
@@ -32,9 +32,9 @@ int _setenv_usr(char **tokens)
  */
 int _alias(void)
 {
-	simple_print("alias: usage: alias [-p] [name[=value] ... ]\n");
-	simple_print("\tSet or view aliases.\n\tSet with name=value\n");
-	simple_print("\tView list of aliases with no arugments or -p\n");
+	inglji_print("alias: usage: alias [-p] [name[=value] ... ]\n");
+	inglji_print("\tSet or view aliases.\n\tSet with name=value\n");
+	inglji_print("\tView list of aliases with no arugments or -p\n");
 	return (0);
 }
 /**
@@ -44,9 +44,9 @@ int _alias(void)
  */
 int _history(void)
 {
-	simple_print("history: usage: history [-c]\n");
-	simple_print("\tView the history of commands\n ");
-	simple_print("\t'history -c' clears the history\n");
+	inglji_print("history: usage: history [-c]\n");
+	inglji_print("\tView the history of commands\n ");
+	inglji_print("\t'history -c' clears the history\n");
 	return (0);
 }
 /**

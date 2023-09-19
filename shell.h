@@ -91,7 +91,7 @@ int _isdigit(int c);
 
 /* In string_operations_2.c */
 unsigned int word_count(char *str);
-void simple_print(const char *str);
+void inglji_print(const char *str);
 int _strlen_const(const char *s);
 size_t print_list(const env_t *h);
 

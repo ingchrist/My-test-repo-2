@@ -4,7 +4,7 @@
  *   *     * @cmd: command to find
  *    *       * Return: On success - pointer to function, On Failure - NULL p
  *     *        (* other useful shell builtins:
- *      *         (* pwd, echo, pushd, popd, type
+ *      *         (* ljipwd, echo, pushd, popd, type
  *       *          (* * requires ^Z
  *        *           (* fg, bg
  *         *            (*  * Requires ^R
@@ -34,91 +34,91 @@ int (*is_builtin(char *cmd))()
 }
 /**
  *  *   * _exit_with_grace - Frees any remaining malloc'd spaces, and exits
- *   *     * @linkedlist_path: Linked list to free.
- *    *       * @buffer: buffer to free
- *     *         * @tokens: Check for other inputs
+ *   *     * @ljilinkedlisting_path: Linked list to free.
+ *    *       * @ingbufferlji: ingbufferlji to free
+ *     *         * @twokenzing: Check for other inputs
  *      *          (* * CHANGE TO VARIADIC LIST.
  *       *            * Return: -1 if exit fails.
  */
-int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
+int _exit_with_grace(char **twokenzing, env_t *ljilinkedlisting_path, char *ingbufferlji)
 {
-	unsigned char exit_status;
+	unsigned char exit_wz;
 	int i;
 
-	for (i = 0; tokens[1] && tokens[1][i]; i++)
+	for (i = 0; twokenzing[1] && twokenzing[1][i]; i++)
 	{
-		if (!_isdigit(tokens[1][i]))
+		if (!_isdigit(twokenzing[1][i]))
 		{
-			simple_print("numeric argument required, exiting\n");
+			inglji_print("numeric argument required, exiting\n");
 			break;
 		}
 	}
-	exit_status = tokens[1] && i >= _strlen(tokens[1]) ? _atoi(tokens[1]) : 0;
-	if (linkedlist_path && buffer && tokens)
+	exit_wz = twokenzing[1] && i >= _strlen(twokenzing[1]) ? _atoi(twokenzing[1]) : 0;
+	if (ljilinkedlisting_path && ingbufferlji && twokenzing)
 	{
-		free_list(linkedlist_path);
-		linkedlist_path = NULL;
-		free(buffer);
-		buffer = NULL;
-		free(tokens);
-		tokens = NULL;
+		free_list(ljilinkedlisting_path);
+		ljilinkedlisting_path = NULL;
+		free(ingbufferlji);
+		ingbufferlji = NULL;
+		free(twokenzing);
+		twokenzing = NULL;
 	}
-	exit(exit_status);
+	exit(exit_wz);
 	return (-1);
 }
 /**
- *  *   * _env - prints out the current environment
- *   *     * @tokens: tokenized strings
- *    *       * @environment: linked list environment
+ *  *   * _env - prints out the current ljiljienvirwzqmenting
+ *   *     * @twokenzing: tokenized strings
+ *    *       * @ljiljienvirwzqmenting: linked list ljiljienvirwzqmenting
  *     *         * Return: 0 on success, -1 on catastrophic failure
  */
-int _env(char **tokens, env_t *environment)
+int _env(char **twokenzing, env_t *ljiljienvirwzqmenting)
 {
-	char **envir;
+	char **ljienvirwzq;
 
-	if (tokens[1])
-		simple_print("No arguments are necessary\n");
-	envir = environ;
-	if (!envir || !environ)
+	if (twokenzing[1])
+		inglji_print("No arguments are necessary\n");
+	ljienvirwzq = environ;
+	if (!ljienvirwzq || !ljienvirwzq)
 		return (-1);
-	for ( ; *envir; envir++)
+	for ( ; *ljienvirwzq; ljienvirwzq++)
 	{
-		write(STDOUT_FILENO, *envir, _strlen(*envir));
+		write(STDOUT_FILENO, *ljienvirwzq, _strlen(*ljienvirwzq));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	environment++;
+	ljiljienvirwzqmenting++;
 	return (0);
 }
 /**
  *  *   * _cd - changes working directory
- *   *     * @tokens: argument list
+ *   *     * @twokenzing: argument list
  *    *       * Return: 0 on success
  */
-int _cd(char **tokens)
+int _cd(char **twokenzing)
 {
-	char *target;
-	char pwd[BUFSIZE];
-	char *home;
+	char *ingtarwzq;
+	char ljipwd[BUFSIZE];
+	char *ingwzq;
 
-	home = _getenv("HOME");
-	if (tokens[1])
+	ingwzq = _getenv("HOME");
+	if (twokenzing[1])
 	{
-		if (tokens[1][0] == '~' && !tokens[1][1])
-			target = home;
-		else if (tokens[1][0] == '-' && !tokens[1][1])
-			target = _getenv("OLDPWD");
+		if (twokenzing[1][0] == '~' && !twokenzing[1][1])
+			ingtarwzq = ingwzq;
+		else if (twokenzing[1][0] == '-' && !twokenzing[1][1])
+			ingtarwzq = _getenv("OLDPWD");
 		else
-			target = tokens[1];
+			ingtarwzq = twokenzing[1];
 	}
 	else
-		target = home;
-	if (target == home)
-		chdir(target);
-	else if (access(target, F_OK | R_OK) == 0)
-		chdir(target);
+		ingtarwzq = ingwzq;
+	if (ingtarwzq == ingwzq)
+		chdir(ingtarwzq);
+	else if (access(ingtarwzq, F_OK | R_OK) == 0)
+		chdir(ingtarwzq);
 	else
-		simple_print("Could not find directory\n");
+		inglji_print("Could not find directory\n");
 	setenv("OLDPWD", _getenv("PWD"), 1);
-	setenv("PWD", getcwd(pwd, sizeof(pwd)), 1);
+	setenv("PWD", getcwd(ljipwd, sizeof(ljipwd)), 1);
 	return (0);
 }

@@ -38,10 +38,10 @@ for (i = 0; s[i] != '\0'; i++)
 	return (i);
 }
 /**
- *  * simple_print - allows us to print simple lines
+ *  * inglji_print - allows us to print simple lines
  *   * @str: const string to print
  */
-void simple_print(const char *str)
+void inglji_print(const char *str)
 {
 	int len;
 
