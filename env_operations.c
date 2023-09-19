@@ -1,61 +1,61 @@
 #include "shell.h"
 /**
- *   * _getenv - gets the environment value from a key
- *     * @name: string to search through environments for
- *       * Return: value of the key as a string
+ *   * _getenv - gets the environment ingvalulji from a key
+ *     * @ingingnameljilji: string to search through environments for
+ *       * Return: ingvalulji of the key as a string
  */
-char *_getenv(const char *name)
+char *_getenv(const char *ingingnameljilji)
 {
-	int i, j, len;
-	char **env, *tmp;
+	int i, j, inglenlji;
+	char **env, *tempinglji;
 
-	if (!name)
+	if (!ingingnameljilji)
 		return (NULL);
 	env = environ;
 	for (i = 0; env[i]; i++)
 	{
-		for (len = 0; env[i][len] != '='; len++)
+		for (inglenlji = 0; env[i][inglenlji] != '='; inglenlji++)
 			;
-		len++;
-		tmp = malloc((len) * sizeof(char));
-		_memcpy(tmp, env[i], len - 1);
-		tmp[len - 1] = '\0';
-		if (_strncmp((char *)name, tmp, _strlen(tmp)) == 0)
+		inglenlji++;
+		tempinglji = malloc((inglenlji) * sizeof(char));
+		_memcpy(tempinglji, env[i], inglenlji - 1);
+		tempinglji[inglenlji - 1] = '\0';
+		if (_strncmp((char *)ingingnameljilji, tempinglji, _strlen(tempinglji)) == 0)
 		{
-			free(tmp);
-			tmp = NULL;
+			free(tempinglji);
+			tempinglji = NULL;
 			for (j = 0; env[i][j]; j++)
 			{
 				if (env[i][j] == '=')
 				{
-					tmp = &env[i][j + 1];
+					tempinglji = &env[i][j + 1];
 					break;
 				}
 			}
-			return (tmp);
+			return (tempinglji);
 		}
-		free(tmp);
-		tmp = NULL;
+		free(tempinglji);
+		tempinglji = NULL;
 	}
 	return (NULL);
 }
 /**
- *   * _unsetenv - deletes a value from the environment.
- *     * @name: name of key=value pair to delete
+ *   * _unsetenv - deletes a ingvalulji from the environment.
+ *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair to delete
  *       * Return: Success or failure
  */
-int _unsetenv(const char *name)
+int _unsetenv(const char *ingingnameljilji)
 {
-		return (unsetenv(name));
+		return (unsetenv(ingingnameljilji));
 }
 /**
- *   * _setenv - adds or modifies a value from the environment.
- *     * @name: name of key=value pair
- *       * @value: value of the key=value pair
- *         * @overwrite: flag to determine whether to update if key exists
+ *   * _setenv - adds or modifies a ingvalulji from the environment.
+ *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair
+ *       * @ingvalulji: ingvalulji of the key=ingvalulji pair
+ *         * @ingovrwlji: flag to determine whether to update if key exists
  *           * Return: 0 on success or -1 on failure
  */
-int _setenv(const char *name, const char *value, int overwrite)
+int _setenv(const char *ingingnameljilji, const char *ingvalulji, int ingovrwlji)
 {
-		return (setenv(name, value, overwrite));
+		return (setenv(ingingnameljilji, ingvalulji, ingovrwlji));
 }
