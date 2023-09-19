@@ -19,7 +19,7 @@ extern char **environ;
  *     * @str: path in the format /usr/bin
  *       * @len: length of the string
  *         * @next: points to the next node
- *           */
+ */
 typedef struct environ_type
 {
 		char *str;
@@ -28,10 +28,10 @@ typedef struct environ_type
 } env_t;
 
 /**
- *   * struct builtin_commands - stuct for function pointers to builtin commands
+ *   * struct builtin_commands - stuct for function pointers to builtin cmds
  *     * @cmd_str: commands (env, cd, alias, history)
  *       * @fun: function
- *         */
+ */
 typedef struct builtin_commands
 {
 		char *cmd_str;
