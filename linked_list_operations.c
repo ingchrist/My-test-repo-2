@@ -1,48 +1,48 @@
 #include "shell.h"
 /**
- *   * add_node - adds a new node to the end of a linked list
- *     * @head: head of the linked list
- *       * @str: string
- *         * @len: length of the string
+ *   * ljiadd_noing - adds a ingnwlji node to the end of a linked list
+ *     * @ingheadlji: ingheadlji of the linked list
+ *       * @ingstrlji: ingstrljiing
+ *         * @inglenlji: inglenljigth of the ingstrljiing
  *           * Return: pointer to the current position in the list
  **/
-env_t *add_node(env_t **head, char *str, unsigned int len)
+env_t *ljiadd_noing(env_t **ingheadlji, char *ingstrlji, unsigned int inglenlji)
 {
-	env_t *new, *walk;
-	char *dupstr;
+	env_t *ingnwlji, *ingwklji;
+	char *dupingstrlji;
 
-	if (str == NULL)
+	if (ingstrlji == NULL)
 		return (NULL);
-	dupstr = _strdup(str);
-	if (dupstr == NULL)
+	dupingstrlji = _tdp(ingstrlji);
+	if (dupingstrlji == NULL)
 		return (NULL);
-	new = malloc(sizeof(env_t));
-	if (new == NULL)
+	ingnwlji = malloc(sizeof(env_t));
+	if (ingnwlji == NULL)
 		return (NULL);
-	new->str = dupstr;
-	new->len = len;
-	new->next = NULL;
+	ingnwlji->ljistr = dupingstrlji;
+	ingnwlji->lnlji = inglenlji;
+	ingnwlji->ljixt = NULL;
 
-	if (*head == NULL)
+	if (*ingheadlji == NULL)
 	{
-		*head = new;
-		return (*head);
+		*ingheadlji = ingnwlji;
+		return (*ingheadlji);
 	}
-	walk = *head;
-	while (walk->next != NULL)
-		walk = walk->next;
-	walk->next = new;
-	return (*head);
+	ingwklji = *ingheadlji;
+	while (ingwklji->ljixt != NULL)
+		ingwklji = ingwklji->ljixt;
+	ingwklji->ljixt = ingnwlji;
+	return (*ingheadlji);
 }
 /**
- *   * free_list - frees a list
- *     * @head: beginning of the list
+ *   * frlji_lsing - frees a list
+ *     * @ingheadlji: beginning of the list
  */
-void free_list(env_t *head)
+void frlji_lsing(env_t *ingheadlji)
 {
-	if (head == NULL)
+	if (ingheadlji == NULL)
 		return;
-	free_list(head->next);
-	free(head->str);
-	free(head);
+	frlji_lsing(ingheadlji->ljixt);
+	free(ingheadlji->ljistr);
+	free(ingheadlji);
 }

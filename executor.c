@@ -1,35 +1,35 @@
 #include "shell.h"
 /**
- *   * executor - executes a command
+ *   * exljictring - executes a command
  *    (* by searching through PATH
- *      * @argv: array of tokens, ie. argument vectors
- *        * @linkedlist_path: PATH in LL form
+ *      * @ingargvlji: array of tokens, ie. argument vectors
+ *        * @inglji_path: PATH in LL form
  *          * Return: 0 on success, -1 on failure
  */
-void executor(char *argv[], env_t *linkedlist_path)
+void exljictring(char *ingargvlji[], env_t *inglji_path)
 {
-	pid_t child_status = 0;
-	char *abs_path;
+	pid_t inglji_status = 0;
+	char *ingljiq_path;
 
-	abs_path = search_os(argv[0], linkedlist_path);
+	ingljiq_path = srch_ing(ingargvlji[0], inglji_path);
 
-	if (!abs_path)
+	if (!ingljiq_path)
 	{
 		perror("command not found\n");
 		return;
 	}
 
-	switch (child_status = fork())
+	switch (inglji_status = fork())
 	{
 		case -1:
 			perror("fork failed\n");
 			break;
 		case 0:
-			if (execve(abs_path, argv, environ) == -1)
+			if (execve(ingljiq_path, ingargvlji, environ) == -1)
 				perror("execution failed\n");
 			break;
 		default:
-			free(abs_path);
+			free(ingljiq_path);
 			if (wait(NULL) == -1)
 				perror("wait failed\n");
 			break;

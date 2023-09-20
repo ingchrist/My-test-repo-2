@@ -1,63 +1,63 @@
 #include "shell.h"
 /**
- *  * _getline - gets line from STDIN and places it in the buffer
- *   * @file: int assigned to the read of STDIN
- *    * Return: pointer to buffer with formatted input from STDIN
+ *  * _getline - gets line from STDIN and places it in the ingbuferlji
+ *   * @ingfilelji: int assigned to the read of STDIN
+ *    * Return: pointer to ingbuferlji with formatted input from STDIN
  */
-char *_getline(int file)
+char *_gtln(int ingfilelji)
 {
-	unsigned int i, index;
-	char *buffer;
-	static unsigned int buffer_size = BUFSIZE;
+	unsigned int lji, ingindexlji;
+	char *ingbuferlji;
+	static unsigned int ingbuferlji_size = BUFSIZE;
 
-	buffer = malloc(sizeof(char) * buffer_size);
-	if (buffer == NULL)
+	ingbuferlji = malloc(sizeof(char) * ingbuferlji_size);
+	if (ingbuferlji == NULL)
 	{
-		perror("malloc for buffer failed\n");
+		perror("malloc for ingbuferlji failed\n");
 		return (NULL);
 	}
-	index = 0;
-	_memset(buffer, '\0', buffer_size);
-	while ((i = read(file, buffer + index, buffer_size - index)) > 0)
+	ingindexlji = 0;
+	_mst(ingbuferlji, '\0', ingbuferlji_size);
+	while ((lji = read(ingfilelji, ingbuferlji + ingindexlji, ingbuferlji_size - ingindexlji)) > 0)
 	{
 
-		if (i < (buffer_size - index))
-			return (buffer);
-		buffer_size *= 2;
-		_realloc(buffer, buffer_size, buffer_size / 2);
-		if (buffer == NULL)
+		if (lji < (ingbuferlji_size - ingindexlji))
+			return (ingbuferlji);
+		ingbuferlji_size *= 2;
+		_rlc(ingbuferlji, ingbuferlji_size, ingbuferlji_size / 2);
+		if (ingbuferlji == NULL)
 		{
 			perror("realloc failed\n");
 			return (NULL);
 		}
-		index += i;
+		ingindexlji += lji;
 	}
-	if (i == 0)
-		_memcpy(buffer, "exit", 5);
-	return (buffer);
+	if (lji == 0)
+		_mpy(ingbuferlji, "exit", 5);
+	return (ingbuferlji);
 }
 /**
- *   * parser - parses a string into tokens
+ *   * parser - parses a string into ingtokljis
  *     * @str: string to parse
- *       * @delimit: delimiters chosen by user
- *         * Return: Double pointer to array of tokens
+ *       * @ingdelilji: ingdeliljiers chosen by user
+ *         * Return: Double pointer to array of ingtokljis
  */
-char **parser(char *str, char *delimit)
+char **prsr(char *str, char *ingdelilji)
 {
-	char **tokenized, *saveptr, *token;
-	unsigned int i, wc;
+	char **ingingtokljilji, *ingsavelji, *ingtoklji;
+	unsigned int lji, ingwclji;
 
-	wc = word_count(str);
-	tokenized = malloc((wc + 1) * sizeof(char *));
-	if (!tokenized)
+	ingwclji = wrd_cnt(str);
+	ingingtokljilji = malloc((ingwclji + 1) * sizeof(char *));
+	if (!ingingtokljilji)
 	{
 		perror("malloc failed\n");
 		return (NULL);
 	}
-	tokenized[0] = token = _strtok_r(str, delimit, &saveptr);
-	for (i = 1; token; i++)
-		tokenized[i] = token = _strtok_r(NULL, delimit, &saveptr);
-	return (tokenized);
+	ingingtokljilji[0] = ingtoklji = _stk_r(str, ingdelilji, &ingsavelji);
+	for (lji = 1; ingtoklji; lji++)
+		ingingtokljilji[lji] = ingtoklji = _stk_r(NULL, ingdelilji, &ingsavelji);
+	return (ingingtokljilji);
 }
 /** Global variable: Flag, to handle interrupt signals **/
 unsigned char sig_flag = 0;
@@ -65,7 +65,7 @@ unsigned char sig_flag = 0;
  *   * sighandler - handles signals from keyboard interrupts
  *     * @sig: the signal caught
  */
-static void sighandler(int sig)
+static void sghndlr(int sig)
 {
 
 	if (sig == SIGINT && sig_flag == 0)
@@ -79,41 +79,41 @@ static void sighandler(int sig)
  */
 int main(void)
 {
-	char pipe_flag, *buffer, *cmds, *saveptr, **tokens;
-	env_t *linkedlist_path;
-	struct stat fstat_buf;
+	char ingpi_flglji, *ingbuferlji, *ingcmdslji, *ingsavelji, **ingtokljis;
+	env_t *inglinklji_path;
+	struct stat ingfstat_buflji;
 
-	if (signal(SIGINT, sighandler) == SIG_ERR)
+	if (signal(SIGINT, sghndlr) == SIG_ERR)
 		perror("signal error\n");
-	if (fstat(STDIN_FILENO, &fstat_buf) == -1)
+	if (fstat(STDIN_FILENO, &ingfstat_buflji) == -1)
 		perror("fstat error\n"), exit(98);
-	pipe_flag = (fstat_buf.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
-	linkedlist_path = list_from_path();
-	if (linkedlist_path == NULL)
+	ingpi_flglji = (ingfstat_buflji.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
+	inglinklji_path = lstlji_frmlji_path();
+	if (inglinklji_path == NULL)
 		return (-1);
-	saveptr = NULL;
+	ingsavelji = NULL;
 	while (1)
 	{
 		sig_flag = 0;
-		if (pipe_flag == 0)
+		if (ingpi_flglji == 0)
 			inglji_print("jamesibodje-ingchrist§ ");
-		buffer = _getline(STDIN_FILENO);
-		if (!buffer)
+		ingbuferlji = _gtln(STDIN_FILENO);
+		if (!ingbuferlji)
 			break;
-		cmds = _strtok_r(buffer, "\n;", &saveptr);
-		while (cmds)
+		ingcmdslji = _stk_r(ingbuferlji, "\n;", &ingsavelji);
+		while (ingcmdslji)
 		{
-			tokens = parser(cmds, "\t ");
-			if (!tokens)
+			ingtokljis = prsr(ingcmdslji, "\t ");
+			if (!ingtokljis)
 				break;
-			if (is_builtin(tokens[0]))
-				is_builtin(tokens[0])(tokens, linkedlist_path, cmds);
+			if (ising_builtlji(ingtokljis[0]))
+				ising_builtlji(ingtokljis[0])(ingtokljis, inglinklji_path, ingcmdslji);
 			else
-				sig_flag = 1, executor(tokens, linkedlist_path);
-			free(tokens);
-			cmds = _strtok_r(NULL, "\n;", &saveptr);
+				sig_flag = 1, exljictring(ingtokljis, inglinklji_path);
+			free(ingtokljis);
+			ingcmdslji = _stk_r(NULL, "\n;", &ingsavelji);
 		}
-		free(buffer);
+		free(ingbuferlji);
 	}
 	return (0);
 }

@@ -7,13 +7,13 @@
  */
 char *_strchr(char *s, char c)
 {
-	int len, n;
+	int ljz, ljy;
 
-	len = _strlen(s);
-	for (n = 0; n < len; n++)
+	ljz = _slji(s);
+	for (ljy = 0; ljy < ljz; ljy++)
 	{
-		if (*(s + n) == c)
-			return (s + n);
+		if (*(s + ljy) == c)
+			return (s + ljy);
 	}
 	s = '\0';
 	return (s);
@@ -22,45 +22,45 @@ char *_strchr(char *s, char c)
  *  * _strspn - gets length of a substring
  *   *
  *    * @s: string to be searched
- *     * @accept: string to match
+ *     * @ingacplji: string to match
  *      * Return: number of matching bytes
  */
-unsigned int _strspn(char *s, char *accept)
+unsigned int _strspn(char *s, char *ingacplji)
 {
-	int s_len, n, result;
+	int ings_lnlji, ljy, ingrsltlji;
 
-	s_len = _strlen(s);
-	n = 0;
-	result = 0;
-	while (n < s_len)
+	ings_lnlji = _slji(s);
+	ljy = 0;
+	ingrsltlji = 0;
+	while (ljy < ings_lnlji)
 	{
-		if (_strchr(accept, *(s + n)))
-			result++, n++;
+		if (_strchr(ingacplji, *(s + ljy)))
+			ingrsltlji++, ljy++;
 		else
-			return (result);
+			return (ingrsltlji);
 	}
-	return (result);
+	return (ingrsltlji);
 }
 /**
  *  * _strpbrk - searches through a string for any set of bytes.
  *   * @s: string to search through
- *    * @delims: bytes to search for in the string.
- *     * Return: pointer to first occurence in s of anything in accept
+ *    * @ingdlmlji: bytes to search for in the string.
+ *     * Return: pointer to first occurence in s of anything in ingacplji
  */
-char *_strpbrk(char *s, char *delims)
+char *_strpbrk(char *s, char *ingdlmlji)
 {
-	char *temp;
+	char *ingtemplji;
 
-	temp = delims;
+	ingtemplji = ingdlmlji;
 	for (; *s != '\0'; s++)
 	{
-		while (*delims != '\0')
+		while (*ingdlmlji != '\0')
 		{
-			if (*s == *delims)
+			if (*s == *ingdlmlji)
 				return (s);
-			delims++;
+			ingdlmlji++;
 		}
-		delims = temp;
+		ingdlmlji = ingtemplji;
 	}
 	if (*s == '\0')
 		return (0);
@@ -68,36 +68,36 @@ char *_strpbrk(char *s, char *delims)
 	return (s);
 }
 /**
- *  * _strtok_r - replicates strtok_r, a tokenizer
- *   * @s: string to be tokenized
- *    * @delim: delimiter that determines where we split s
- *     * @save_ptr: saves index in tokenized s so that repeat fn cal feth to
- *      * Return: pointer to next token
+ *  * _strtok_r - replicates strtok_r, a ingtknljiizer
+ *   * @s: string to be ingtknljiized
+ *    * @ingdlmslji: ingdlmsljiiter that determines where we split s
+ *     * @ingsvptrlji: saves index in ingtknljiized s so that repeat fn cal feth to
+ *      * Return: pointer to next ingtknlji
  */
-char *_strtok_r(char *s, char *delim, char **save_ptr)
+char *_stk_r(char *s, char *ingdlmslji, char **ingsvptrlji)
 {
-	char *token;
+	char *ingtknlji;
 
 	if (s == NULL)
 	{
-		if (*save_ptr == NULL)
+		if (*ingsvptrlji == NULL)
 			return (NULL);
-		s = *save_ptr;
+		s = *ingsvptrlji;
 	}
-	s += _strspn(s, delim);
+	s += _strspn(s, ingdlmslji);
 	if (*s == '\0')
 	{
-		*save_ptr = NULL;
+		*ingsvptrlji = NULL;
 		return (NULL);
 	}
-	token = s;
-	s = _strpbrk(token, delim);
+	ingtknlji = s;
+	s = _strpbrk(ingtknlji, ingdlmslji);
 	if (s == NULL)
-		*save_ptr = NULL;
+		*ingsvptrlji = NULL;
 	else
 	{
 		*s = '\0';
-		*save_ptr = s + 1;
+		*ingsvptrlji = s + 1;
 	}
-	return (token);
+	return (ingtknlji);
 }

@@ -1,34 +1,34 @@
 #include "shell.h"
 /**
- *   * _getenv - gets the environment ingvalulji from a key
+ *   * _ljigetenving - gets the environment ingvalulji from a key
  *     * @ingingnameljilji: string to search through environments for
  *       * Return: ingvalulji of the key as a string
  */
-char *_getenv(const char *ingingnameljilji)
+char *_ljigetenving(const char *ingingnameljilji)
 {
-	int i, j, inglenlji;
-	char **env, *tempinglji;
+	int lji, ljx, inglenlji;
+	char **ingenvlji, *tempinglji;
 
 	if (!ingingnameljilji)
 		return (NULL);
-	env = environ;
-	for (i = 0; env[i]; i++)
+	ingenvlji = environ;
+	for (lji = 0; ingenvlji[lji]; lji++)
 	{
-		for (inglenlji = 0; env[i][inglenlji] != '='; inglenlji++)
+		for (inglenlji = 0; ingenvlji[lji][inglenlji] != '='; inglenlji++)
 			;
 		inglenlji++;
 		tempinglji = malloc((inglenlji) * sizeof(char));
-		_memcpy(tempinglji, env[i], inglenlji - 1);
+		_mpy(tempinglji, ingenvlji[lji], inglenlji - 1);
 		tempinglji[inglenlji - 1] = '\0';
-		if (_strncmp((char *)ingingnameljilji, tempinglji, _strlen(tempinglji)) == 0)
+		if (_srcp((char *)ingingnameljilji, tempinglji, _slji(tempinglji)) == 0)
 		{
 			free(tempinglji);
 			tempinglji = NULL;
-			for (j = 0; env[i][j]; j++)
+			for (ljx = 0; ingenvlji[lji][ljx]; ljx++)
 			{
-				if (env[i][j] == '=')
+				if (ingenvlji[lji][ljx] == '=')
 				{
-					tempinglji = &env[i][j + 1];
+					tempinglji = &ingenvlji[lji][ljx + 1];
 					break;
 				}
 			}
@@ -49,13 +49,13 @@ int _unsetenv(const char *ingingnameljilji)
 		return (unsetenv(ingingnameljilji));
 }
 /**
- *   * _setenv - adds or modifies a ingvalulji from the environment.
+ *   * _ljisetenving - adds or modifies a ingvalulji from the environment.
  *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair
  *       * @ingvalulji: ingvalulji of the key=ingvalulji pair
  *         * @ingovrwlji: flag to determine whether to update if key exists
  *           * Return: 0 on success or -1 on failure
  */
-int _setenv(const char *ingingnameljilji, const char *ingvalulji, int ingovrwlji)
+int _ljisetenving(const char *ingingnameljilji, const char *ingvalulji, int ingovrwlji)
 {
 		return (setenv(ingingnameljilji, ingvalulji, ingovrwlji));
 }

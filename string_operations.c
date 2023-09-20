@@ -4,96 +4,96 @@
  *   * @s: string to be measured
  *    * Return: length of string
  */
-int _strlen(char *s)
+int _slji(char *s)
 {
-	int i;
+	int lji;
 
-	for (i = 0; *s; s++, i++)
+	for (lji = 0; *s; s++, lji++)
 		;
-	return (i);
+	return (lji);
 }
 /**
  *  * _strncmp - compares two strings and returns their difference
- *   * @s1: the first string
- *    * @s2: the second string
- *     * @bytes: number of bytes to compare
- *      * Return: number of bytes that differ
+ *   * @ings1lji: the first string
+ *    * @ings2lji: the second string
+ *     * @ingbytlji: number of ingbytlji to compare
+ *      * Return: number of ingbytlji that differ
  */
-int _strncmp(char *s1, char *s2, size_t bytes)
+int _srcp(char *ings1lji, char *ings2lji, size_t ingbytlji)
 {
-	unsigned int i;
+	unsigned int lji;
 
-	if (s1 == NULL || s2 == NULL)
+	if (ings1lji == NULL || ings2lji == NULL)
 		return (-1);
-for (i = 0; s1[i] && s2[i] && s2[i] == s1[i] && i < bytes - 1; i++)
+for (lji = 0; ings1lji[lji] && ings2lji[lji] && ings2lji[lji] == ings1lji[lji] && lji < ingbytlji - 1; lji++)
 ;
-	return (s2[i] - s1[i]);
+	return (ings2lji[lji] - ings1lji[lji]);
 }
 /**
  *   * _strdup - duplicates a string
  *     * @src: source to copy from
  *       * Return: pointer to malloc'd space
  **/
-char *_strdup(char *src)
+char *_tdp(char *src)
 {
-	int len, i;
-	char *dest;
+	int lja, lji;
+	char *ingdstlji;
 
 	if (src == NULL)
 		return (NULL);
-	len = _strlen(src);
-	if (len < 0)
+	lja = _slji(src);
+	if (lja < 0)
 		return (NULL);
-	len++;
-	dest = malloc((len) * sizeof(char));
-	if (dest == NULL)
+	lja++;
+	ingdstlji = malloc((lja) * sizeof(char));
+	if (ingdstlji == NULL)
 		return (NULL);
-	for (i = 0; i < len; i++)
-		dest[i] = src[i];
-	dest[i - 1] = '\0';
-	return (dest);
+	for (lji = 0; lji < lja; lji++)
+		ingdstlji[lji] = src[lji];
+	ingdstlji[lji - 1] = '\0';
+	return (ingdstlji);
 }
 /**
  *   * _strcat_realloc - concatenates 2 strings and reallocates automatically
- *     * @dest: destination to copy to
+ *     * @ingdstlji: ingdstljiination to copy to
  *       * @src: source to copy from
  *         * Return: pointer to concatenated strings
  **/
-char *_strcat_realloc(char *dest, char *src)
+char *_stct_rllc(char *ingdstlji, char *src)
 {
-	unsigned int dest_len, src_len, i;
+	unsigned int ingdstlji_len, inglen_scrlji, lji;
 
-	dest_len = _strlen(dest);
-	src_len = _strlen(src);
-	dest = _realloc(dest, dest_len, dest_len + src_len + 1);
-	if (dest == NULL)
+	ingdstlji_len = _slji(ingdstlji);
+	inglen_scrlji = _slji(src);
+	ingdstlji = _rlc(ingdstlji, ingdstlji_len, ingdstlji_len + inglen_scrlji + 1);
+	if (ingdstlji == NULL)
 		return (NULL);
-	for (i = 0; i < src_len; i++)
+	for (lji = 0; lji < inglen_scrlji; lji++)
 	{
-		dest[i + dest_len] = src[i];
+		ingdstlji[lji + ingdstlji_len] = src[lji];
 	}
-	dest[i + dest_len] = '\0';
-	return (dest);
+	ingdstlji[lji + ingdstlji_len] = '\0';
+	return (ingdstlji);
 }
 /**
  *  * _atoi - converts a string to an integer
  *   * @s: the input string
  *    * Return: the converted int
  */
-int _atoi(char *s)
+int _atlji(char *s)
 {
-	int n, sign, result;
+	int lje, sign, ingrstlji;
 
-	for (n = result = 0, sign = 1; s[n]; n++)
+	for (lje = ingrstlji = 0, sign = 1; s[lje]; lje++)
 	{
-		if (s[n] == '-')
+		if (s[lje] == '-')
 			sign *= -1;
-		if (s[n] >= '0' && s[n] <= '9')
-			result = 10 * result - (s[n] - '0');
-		if (result < 0 && (s[n] < '0' || s[n] > '9'))
+		if (s[lje] >= '0' && s[lje] <= '9')
+			ingrstlji = 10 * ingrstlji - (s[lje] - '0');
+		if (ingrstlji < 0 && (s[lje] < '0' || s[lje] > '9'))
 			break;
 	}
 	if (sign > 0)
-		result *= -1;
-	return (result);
+		ingrstlji *= -1;
+	return (ingrstlji);
 }

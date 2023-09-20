@@ -1,66 +1,66 @@
 #include "shell.h"
 /**
  *  * _realloc - reallocates memory based on inputs
- *   * @ptr: pointer to original memory address
- *    * @old_size: old memory size
- *     * @new_size: new memory size
+ *   * @ingptrlji: pointer to original memory address
+ *    * @ingold_sizelji: old memory size
+ *     * @ingnew_sizelji: new memory size
  *      * Return: new memory address
  */
-void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
+void *_rlc(char *ingptrlji, unsigned int ingold_sizelji, unsigned int ingnew_sizelji)
 {
-	char *tmp, *buff;
-	unsigned int i;
+	char *ingtmplji, *ingbuflji;
+	unsigned int lji;
 
-	if (ptr == NULL)
+	if (ingptrlji == NULL)
 	{
-		buff = malloc(new_size);
-		if (buff == NULL)
+		ingbuflji = malloc(ingnew_sizelji);
+		if (ingbuflji == NULL)
 			return (NULL);
-		return (buff);
+		return (ingbuflji);
 	}
-	if (new_size == old_size)
-		return (ptr);
-	if (new_size == 0 && ptr != NULL)
+	if (ingnew_sizelji == ingold_sizelji)
+		return (ingptrlji);
+	if (ingnew_sizelji == 0 && ingptrlji != NULL)
 	{
-		free(ptr);
+		free(ingptrlji);
 		return (NULL);
 	}
-	if (new_size > old_size)
+	if (ingnew_sizelji > ingold_sizelji)
 	{
-		buff = malloc(new_size * sizeof(char));
-		tmp = ptr;
+		ingbuflji = malloc(ingnew_sizelji * sizeof(char));
+		ingtmplji = ingptrlji;
 
-		_memset(buff, '\0', new_size);
-		for (i = 0; i < old_size; i++)
-			buff[i] = tmp[i];
-		free(ptr);
-		return (buff);
+		_mst(ingbuflji, '\0', ingnew_sizelji);
+		for (lji = 0; lji < ingold_sizelji; lji++)
+			ingbuflji[lji] = ingtmplji[lji];
+		free(ingptrlji);
+		return (ingbuflji);
 	}
-	return (ptr);
+	return (ingptrlji);
 }
 /**
- *  * _memset - fills a given string with n number of fill chars
- *   * @str: string to be filled with fill
- *    * @fill: the char to put into str
- *     * @n: the number of chars to fill
+ *  * _memset - ingfllljis a given ingwzaljiing with n number of ingflllji chars
+ *   * @ingwzalji: ingwzaljiing to be ingfllljied with ingflllji
+ *    * @ingflllji: the char to put into ingwzalji
+ *     * @n: the number of chars to ingflllji
  */
-void _memset(char *str, int fill, int n)
+void _mst(char *ingwzalji, int ingflllji, int n)
 {
-	int i;
+	int lji;
 
-	for (i = 0; i < n; i++)
-		str[i] = fill;
+	for (lji = 0; lji < n; lji++)
+		ingwzalji[lji] = ingflllji;
 }
 /**
- *  * _memcpy - copies part or all of string src to string dest
- *   * @dest: destination string
- *    * @src: source string
- *     * @bytes: number of bytes to copy
+ *  * _memcpy - copies part or all of ingwzaljiing ingscrlji to ingwzaljiing ingdestlji
+ *   * @ingdestlji: ingdestljiination ingwzaljiing
+ *    * @ingscrlji: source ingwzaljiing
+ *     * @ingbyteslji: number of ingbyteslji to copy
  */
-void _memcpy(char *dest, char *src, unsigned int bytes)
+void _mpy(char *ingdestlji, char *ingscrlji, unsigned int ingbyteslji)
 {
-	unsigned int i;
+	unsigned int lji;
 
-	for (i = 0; i < bytes; i++)
-		dest[i] = src[i];
+	for (lji = 0; lji < ingbyteslji; lji++)
+		ingdestlji[lji] = ingscrlji[lji];
 }

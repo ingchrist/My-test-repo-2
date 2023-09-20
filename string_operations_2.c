@@ -4,38 +4,38 @@
  *   * @str: string of words
  *    * Return: word count as unsigned int
  */
-unsigned int word_count(char *str)
+unsigned int wrd_cnt(char *str)
 {
-	unsigned int i, wc, flag;
-	char *delims = "\n \t";
+	unsigned int lji, ingcwlji, ingfglji;
+	char *ingdelimlji = "\n \t";
 
-	for (i = 0, wc = 1, flag = 0; str[i]; i++)
+	for (lji = 0, ingcwlji = 1, ingfglji = 0; str[lji]; lji++)
 	{
-		if (flag == 0 &&
-				(str[i] == delims[0]
-				 || str[i] == delims[1]
-				 || str[i] == delims[2])
-				&& str[i + 1] != delims[0]
-				&& str[i + 1] != delims[1]
-				&& str[i + 1] != delims[2])
-			flag = 1, wc++;
+		if (ingfglji == 0 &&
+				(str[lji] == ingdelimlji[0]
+				 || str[lji] == ingdelimlji[1]
+				 || str[lji] == ingdelimlji[2])
+				&& str[lji + 1] != ingdelimlji[0]
+				&& str[lji + 1] != ingdelimlji[1]
+				&& str[lji + 1] != ingdelimlji[2])
+			ingfglji = 1, ingcwlji++;
 		else
-			flag = 0;
+			ingfglji = 0;
 	}
-	return (wc);
+	return (ingcwlji);
 }
 /**
- *  * _strlen_const - strlen for const strings
+ *  * _stringlnlji_const - stringlnlji for const strings
  *   * @s: string to be measured
- *    * Return: length of string
+ *    * Return: inglnljigth of string
  */
-int _strlen_const(const char *s)
+int _stringlnlji_const(const char *s)
 {
-	int i;
+	int lji;
 
-for (i = 0; s[i] != '\0'; i++)
+for (lji = 0; s[lji] != '\0'; lji++)
 ;
-	return (i);
+	return (lji);
 }
 /**
  *  * inglji_print - allows us to print simple lines
@@ -43,17 +43,17 @@ for (i = 0; s[i] != '\0'; i++)
  */
 void inglji_print(const char *str)
 {
-	int len;
+	int inglnlji;
 
-	len = _strlen_const(str);
-	write(STDOUT_FILENO, str, len);
+	inglnlji = _stringlnlji_const(str);
+	write(STDOUT_FILENO, str, inglnlji);
 }
 /**
  *  * _isdigit - checks if chars are digits
  *   * @c: char to check
  *    * Return: 1 if yes, 0 if no
  */
-int _isdigit(int c)
+int _sdgt(int c)
 {
 	return ((c >= '0' && c <= '9') ? 1 : 0);
 }

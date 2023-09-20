@@ -1,33 +1,33 @@
 #include "shell.h"
 /**
- *   * list_from_path - builds a linked list from PATH
+ *   * lstlji_frmlji_path - builds a linked list from PATH
  *     * Return: pointer to linked list
  */
-env_t *list_from_path(void)
+env_t *lstlji_frmlji_path(void)
 {
-	unsigned int len, i, j;
-	char *env;
-	char buffer[BUFSIZE];
-	env_t *ep;
+	unsigned int ljilening, lji, ljx;
+	char *envlji;
+	char ingbuflji[BUFSIZE];
+	env_t *ingeplji;
 
-	ep = NULL;
-	len = i = j = 0;
-	env = _getenv("PATH");
-	while (*env)
+	ingeplji = NULL;
+	ljilening = lji = ljx = 0;
+	envlji = _ljigetenving("PATH");
+	while (*envlji)
 	{
-		buffer[j++] = *env;
-		len++;
-		if (*env == ':')
+		ingbuflji[ljx++] = *envlji;
+		ljilening++;
+		if (*envlji == ':')
 		{
-			len--;
-			buffer[j - 1] = '/';
-			buffer[j] = '\0';
-			add_node(&ep, buffer, len);
-			len = j = 0;
+			ljilening--;
+			ingbuflji[ljx - 1] = '/';
+			ingbuflji[ljx] = '\0';
+			ljiadd_noing(&ingeplji, ingbuflji, ljilening);
+			ljilening = ljx = 0;
 		}
-		env++;
+		envlji++;
 	}
-	return (ep);
+	return (ingeplji);
 }
 /**
  *   * environ_linked_list - builds a linked list from PATH
@@ -35,56 +35,56 @@ env_t *list_from_path(void)
  */
 env_t *environ_linked_list(void)
 {
-	int i, j;
-	char **env;
-	env_t *ep;
+	int lji, ljx;
+	char **envlji;
+	env_t *ingeplji;
 
-	ep = NULL;
-	i = j = 0;
-	env = environ;
-	while (env[i])
+	ingeplji = NULL;
+	lji = ljx = 0;
+	envlji = environ;
+	while (envlji[lji])
 	{
-		add_node(&ep, env[i], (unsigned int)_strlen(env[i]));
-		i++;
+		ljiadd_noing(&ingeplji, envlji[lji], (unsigned int)_slji(envlji[lji]));
+		lji++;
 	}
-	return (ep);
+	return (ingeplji);
 }
 /**
- *   * search_os - search through os to find a command
- *     * @cmd: command to search for
- *       * @linkedlist_path: path to search through
+ *   * srch_ing - search through os to find a command
+ *     * @ingcmdlji: command to search for
+ *       * @inglji_path: path to search through
  *         * Return: String to absolute path if found, NULL if not
  */
-char *search_os(char *cmd, env_t *linkedlist_path)
+char *srch_ing(char *ingcmdlji, env_t *inglji_path)
 {
-	int status;
-	char *abs_path;
-	env_t *ep;
+	int ingstalji;
+	char *abslji_pathing;
+	env_t *ingeplji;
 
-	ep = linkedlist_path;
-	if (ep == NULL || cmd == NULL)
+	ingeplji = inglji_path;
+	if (ingeplji == NULL || ingcmdlji == NULL)
 		return (NULL);
-	if ((_strncmp(cmd, "/", 1) == 0
-				|| _strncmp(cmd, "./", 2) == 0)
-			&& access(cmd, F_OK | X_OK) == 0)
+	if ((_srcp(ingcmdlji, "/", 1) == 0
+				|| _srcp(ingcmdlji, "./", 2) == 0)
+			&& access(ingcmdlji, F_OK | X_OK) == 0)
 	{
-		abs_path = _strdup(cmd);
-		return (abs_path);
+		abslji_pathing = _tdp(ingcmdlji);
+		return (abslji_pathing);
 	}
-	while (ep != NULL)
+	while (ingeplji != NULL)
 	{
-		abs_path = _strdup(ep->str);
+		abslji_pathing = _tdp(ingeplji->ljistr);
 
-		if (abs_path == NULL)
+		if (abslji_pathing == NULL)
 			return (NULL);
-		abs_path = _strcat_realloc(abs_path, cmd);
-		if (abs_path == NULL)
+		abslji_pathing = _stct_rllc(abslji_pathing, ingcmdlji);
+		if (abslji_pathing == NULL)
 			return (NULL);
-		status = access(abs_path, F_OK | X_OK);
-		if (status == 0)
-			return (abs_path);
-		free(abs_path);
-		ep = ep->next;
+		ingstalji = access(abslji_pathing, F_OK | X_OK);
+		if (ingstalji == 0)
+			return (abslji_pathing);
+		free(abslji_pathing);
+		ingeplji = ingeplji->ljixt;
 	}
 	return (NULL);
 }

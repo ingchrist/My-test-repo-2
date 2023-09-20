@@ -1,36 +1,36 @@
 #include "shell.h"
 /**
- *  *   * _setenv_usr - sets environmental variables as user defines
+ *  *   * _ljienv_usr - sets environmental variables as user defines
  *   *     * @twokenzing: KEY=VALUE pair
  *    *       * Return: 0 on success, -1 on failure
  */
-int _setenv_usr(char **twokenzing)
+int _ljienv_usr(char **twokenzing)
 {
-	int i, wz, wzq;
+	int lji, wz, wzq;
 	char *ingkeylji, *ingvalji, *ingsavlji;
 
-	for (i = 0, wzq = 1; twokenzing[1][i]; i++)
-		if (twokenzing[1][i] == '=')
+	for (lji = 0, wzq = 1; twokenzing[1][lji]; lji++)
+		if (twokenzing[1][lji] == '=')
 			wzq++;
-	for (i = 0; twokenzing[i]; i++)
+	for (lji = 0; twokenzing[lji]; lji++)
 		;
-	if (!twokenzing[1] || i == 0 || wzq != 2)
+	if (!twokenzing[1] || lji == 0 || wzq != 2)
 	{
 		inglji_print("setenv: Usage: setenv KEY=VALUE\n");
 		return (-1);
 	}
-	ingkeylji = _strtok_r(twokenzing[1], "=", &ingsavlji);
-	ingvalji = _strtok_r(NULL, "=", &ingsavlji);
-	wz = _setenv(ingkeylji, ingvalji, 0);
+	ingkeylji = _stk_r(twokenzing[1], "=", &ingsavlji);
+	ingvalji = _stk_r(NULL, "=", &ingsavlji);
+	wz = _ljisetenving(ingkeylji, ingvalji, 0);
 	if (wz == 0)
 		return (wz);
 	return (-1);
 }
 /**
- *  *   * _alias - sets aliases or prints them out when no options are supplied
+ *  *   * _als_ing_lji - sets aliases or prints them out when no options are supplied
  *   *     * Return: 0
  */
-int _alias(void)
+int _als_ing_lji(void)
 {
 	inglji_print("alias: usage: alias [-p] [name[=ingvalji] ... ]\n");
 	inglji_print("\tSet or view aliases.\n\tSet with name=ingvalji\n");
@@ -38,11 +38,11 @@ int _alias(void)
 	return (0);
 }
 /**
- *  *   * _history - prints out history with no options,
+ *  *   * _hst_ing_lji - prints out history with no options,
  *   *     *  or clears history with -c
  *    *       * Return: 0 on success, 1 if history cannot be cleared.
  */
-int _history(void)
+int _hst_ing_lji(void)
 {
 	inglji_print("history: usage: history [-c]\n");
 	inglji_print("\tView the history of commands\n ");
@@ -50,14 +50,14 @@ int _history(void)
 	return (0);
 }
 /**
- *  *   * bowie - easter egg. Displays ASCII picture of Bowie
+ *  *   * ingbowlji - easter egg. Displays ASCII picture of Bowie
  *   *     * Return: 1947, the year Bowie was born
  */
-int bowie(void)
+int ingbowlji(void)
 {
 	int ljitxting, ljitoting, ljirding;
 	size_t ljileting = 7483;
-	char *ljinming = "bowie.txt";
+	char *ljinming = "ingbowlji.txt";
 	char ingbuflji[BUFSIZE];
 
 	if (ljinming == NULL)
