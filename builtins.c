@@ -13,7 +13,7 @@
 int (*ising_builtlji(char *cmd))()
 {
 	unsigned int lji;
-	builtin_cmds_t builds[] = {
+	builtin_cmds_t bld[] = {
 		{"alias", _als_ing_lji},
 		{"cd", _cd_ing_lji},
 		{"env", _env_ing_lji},
@@ -24,10 +24,10 @@ int (*ising_builtlji(char *cmd))()
 		{NULL, NULL}
 	};
 	lji = 0;
-	while (*builds[lji].fun != NULL)
+	while (*bld[lji].fun != NULL)
 	{
-		if (_srcp(builds[lji].cmd_str, cmd, _slji(builds[lji].cmd_str)) == 0)
-			return (builds[lji].fun);
+		if (_srcp(bld[lji].cmd_str, cmd, _slji(bld[lji].cmd_str)) == 0)
+			return (bld[lji].fun);
 		lji++;
 	}
 	return (NULL);
