@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *  *   * _ljienv_usr - sets environmental variables as user defines
  *   *     * @twokenzing: KEY=VALUE pair

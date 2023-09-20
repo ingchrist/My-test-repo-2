@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *   * exljictring - executes a command
  *    (* by searching through PATH

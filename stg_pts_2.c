@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *  * word_count - counts words given a char delimiter
  *   * @str: string of words

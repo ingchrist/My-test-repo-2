@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *   * lstlji_frmlji_path - builds a linked list from PATH
  *     * Return: pointer to linked list

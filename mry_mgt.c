@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *  * _realloc - reallocates memory based on inputs
  *   * @ingptrlji: pointer to original memory address

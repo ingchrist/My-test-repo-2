@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *  * _strchr - checks for a char in a string
  *   * @s: the string

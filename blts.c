@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "inglji.h"
 /**
  *  *   * ising_builtlji - checks if cmd is a builtin
  *   *     * @cmd: command to find
