@@ -1,8 +1,8 @@
 #include "inglji.h"
 /**
- *  * word_count - counts words given a char delimiter
- *   * @str: string of words
- *    * Return: word count as unsigned int
+ *  * word_count - count words given a char delimit
+ *   * @str: string of word
+ *    * Return: word count unsigned int
  */
 unsigned int wrd_cnt(char *str)
 {
@@ -26,20 +26,20 @@ unsigned int wrd_cnt(char *str)
 }
 /**
  *  * _stringlnlji_const - stringlnlji for const strings
- *   * @s: string to be measured
- *    * Return: inglnljigth of string
+ *   * @lxx: string to be measure
+ *    * Return: inglnljigth of strings
  */
-int _stringlnlji_const(const char *s)
+int _stringlnlji_const(const char *lxx)
 {
 	int lji;
 
-for (lji = 0; s[lji] != '\0'; lji++)
+for (lji = 0; lxx[lji] != '\0'; lji++)
 ;
 	return (lji);
 }
 /**
- *  * inglji_print - allows us to print simple lines
- *   * @str: const string to print
+ *  * inglji_print - allow us to print simple line
+ *   * @str: const string to prints
  */
 void inglji_print(const char *str)
 {
@@ -49,11 +49,11 @@ void inglji_print(const char *str)
 	write(STDOUT_FILENO, str, inglnlji);
 }
 /**
- *  * _isdigit - checks if chars are digits
- *   * @c: char to check
+ *  * _isdigit - check if char are digit
+ *   * @lyy: chars to checks
  *    * Return: 1 if yes, 0 if no
  */
-int _sdgt(int c)
+int _sdgt(int lyy)
 {
-	return ((c >= '0' && c <= '9') ? 1 : 0);
+	return ((lyy >= '0' && lyy <= '9') ? 1 : 0);
 }

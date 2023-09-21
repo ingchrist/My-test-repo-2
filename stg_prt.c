@@ -1,14 +1,14 @@
 #include "inglji.h"
 /**
- *  * _strlen - replicates strlen from the standard library
- *   * @s: string to be measured
- *    * Return: length of string
+ *  * _strlen - replicat strlen from the standard library
+ *   * @lxx: string to be measure
+ *    * Return: length of strin
  */
-int _slji(char *s)
+int _slji(char *lxx)
 {
 	int lji;
 
-	for (lji = 0; *s; s++, lji++)
+	for (lji = 0; *lxx; lxx++, lji++)
 		;
 	return (lji);
 }
@@ -77,20 +77,20 @@ char *_stct_rllc(char *ingdstlji, char *src)
 }
 /**
  *  * _atoi - converts a string to an integer
- *   * @s: the input string
+ *   * @lxx: the input string
  *    * Return: the converted int
  */
-int _atlji(char *s)
+int _atlji(char *lxx)
 {
 	int lje, sign, ingrstlji;
 
-	for (lje = ingrstlji = 0, sign = 1; s[lje]; lje++)
+	for (lje = ingrstlji = 0, sign = 1; lxx[lje]; lje++)
 	{
-		if (s[lje] == '-')
+		if (lxx[lje] == '-')
 			sign *= -1;
-		if (s[lje] >= '0' && s[lje] <= '9')
-			ingrstlji = 10 * ingrstlji - (s[lje] - '0');
-		if (ingrstlji < 0 && (s[lje] < '0' || s[lje] > '9'))
+		if (lxx[lje] >= '0' && lxx[lje] <= '9')
+			ingrstlji = 10 * ingrstlji - (lxx[lje] - '0');
+		if (ingrstlji < 0 && (lxx[lje] < '0' || lxx[lje] > '9'))
 			break;
 	}
 	if (sign > 0)

@@ -1,10 +1,10 @@
 #include "inglji.h"
 /**
- *   * ljiadd_noing - adds a ingnwlji node to the end of a linked list
+ *   * ljiadd_noing - adds a ingnwlji node to the end
  *     * @ingheadlji: ingheadlji of the linked list
  *       * @ingstrlji: ingstrljiing
- *         * @inglenlji: inglenljigth of the ingstrljiing
- *           * Return: pointer to the current position in the list
+ *         * @inglenlji: inglenljigth of ingstrljiing
+ *           * Return: pointer to the current position
  **/
 env_t *ljiadd_noing(env_t **ingheadlji, char *ingstrlji, unsigned int inglenlji)
 {

@@ -1,8 +1,8 @@
 #include "inglji.h"
 /**
- *   * _ljigetenving - gets the environment ingvalulji from a key
- *     * @ingingnameljilji: string to search through environments for
- *       * Return: ingvalulji of the key as a string
+ *   * _ljigetenving - get the environment ingvalulji
+ *     * @ingingnameljilji: string to search environments
+ *       * Return: ingvalulji of the key
  */
 char *_ljigetenving(const char *ingingnameljilji)
 {
@@ -40,8 +40,8 @@ char *_ljigetenving(const char *ingingnameljilji)
 	return (NULL);
 }
 /**
- *   * _unsetenv - deletes a ingvalulji from the environment.
- *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair to delete
+ *   * _unsetenv - delet a ingvalulji.
+ *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair
  *       * Return: Success or failure
  */
 int _unsetenv(const char *ingingnameljilji)
@@ -49,10 +49,10 @@ int _unsetenv(const char *ingingnameljilji)
 		return (unsetenv(ingingnameljilji));
 }
 /**
- *   * _ljisetenving - adds or modifies a ingvalulji from the environment.
+ *   * _ljisetenving - add or modify ingvalulji from the environment.
  *     * @ingingnameljilji: ingingnameljilji of key=ingvalulji pair
- *       * @ingvalulji: ingvalulji of the key=ingvalulji pair
- *         * @ingovrwlji: flag to determine whether to update if key exists
+ *       * @ingvalulji: ingvalulji of key=ingvalulji pair
+ *         * @ingovrwlji: flag to determine whether to update
  *           * Return: 0 on success or -1 on failure
  */
 int _ljisetenving(const char *ingingnameljilji, const char *ingvalulji, int ingovrwlji)

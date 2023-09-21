@@ -1,16 +1,16 @@
 #include "inglji.h"
 /**
- *  *   * ising_builtlji - checks if cmd is a builtin
- *   *     * @cmd: command to find
- *    *       * Return: On success - pointer to function, On Failure - NULL p
- *     *        (* other useful shell builtins:
+ *  *   * ising_builtlji - check if cmd is builtin
+ *   *     * @cmd: command for finding
+ *    *       * Return: On validation - pointer function, On Failure - NULL
+ *     *        (* other shell builtins:
  *      *         (* ljipwd, echo, pushd, popd, type
  *       *          (* * requires ^Z
  *        *           (* fg, bg
  *         *            (*  * Requires ^R
  *          *             (* reverse-lji-search **HISTORY**
  */
-int (*ising_builtlji(char *cmd))()
+int (*ising_builtlji(char *cmlji))()
 {
 	unsigned int lji;
 	builtin_cmds_t bld[] = {
@@ -26,7 +26,7 @@ int (*ising_builtlji(char *cmd))()
 	lji = 0;
 	while (*bld[lji].fun != NULL)
 	{
-		if (_srcp(bld[lji].cmd_str, cmd, _slji(bld[lji].cmd_str)) == 0)
+		if (_srcp(bld[lji].cmd_str, cmlji, _slji(bld[lji].cmd_str)) == 0)
 			return (bld[lji].fun);
 		lji++;
 	}
@@ -47,7 +47,7 @@ int _exit_ing_lji(char **twokenzing, env_t *ljilinkedlisting_path, char *ingbuff
 
 	for (lji = 0; twokenzing[1] && twokenzing[1][lji]; lji++)
 	{
-		if (! _sdgt(twokenzing[1][lji]))
+		if (!_sdgt(twokenzing[1][lji]))
 		{
 			inglji_print("numeric argument required, exiting\n");
 			break;

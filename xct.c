@@ -1,10 +1,10 @@
 #include "inglji.h"
 /**
- *   * exljictring - executes a command
- *    (* by searching through PATH
- *      * @ingargvlji: array of tokens, ie. argument vectors
- *        * @inglji_path: PATH in LL form
- *          * Return: 0 on success, -1 on failure
+ *   * exljictring - executes a commands
+ *    (* by search through PATHs
+ *      * @ingargvlji: array of tokens.
+ *        * @inglji_path: PATHs in LL form
+ *          * Return: 0 on validation, -1 on failure
  */
 void exljictring(char *ingargvlji[], env_t *inglji_path)
 {

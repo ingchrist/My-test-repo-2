@@ -1,8 +1,8 @@
 #include "inglji.h"
 /**
- *  * _getline - gets line from STDIN and places it in the ingbuferlji
+ *  * _getline - gets line from STDIN and places in the ingbuferlji
  *   * @ingfilelji: int assigned to the read of STDIN
- *    * Return: pointer to ingbuferlji with formatted input from STDIN
+ *    * Return: pointer to ingbuferlji with formatted input
  */
 char *_gtln(int ingfilelji)
 {
@@ -37,8 +37,8 @@ char *_gtln(int ingfilelji)
 	return (ingbuferlji);
 }
 /**
- *   * parser - parses a string into ingtokljis
- *     * @str: string to parse
+ *   * parser - pars a string into ingtokljis
+ *     * @str: string to pars
  *       * @ingdelilji: ingdeliljiers chosen by user
  *         * Return: Double pointer to array of ingtokljis
  */
@@ -59,10 +59,10 @@ char **prsr(char *str, char *ingdelilji)
 		ingingtokljilji[lji] = ingtoklji = _stk_r(NULL, ingdelilji, &ingsavelji);
 	return (ingingtokljilji);
 }
-/** Global variable: Flag, to handle interrupt signals **/
+/** Global variable: Flag, to handle signals **/
 unsigned char sig_flag = 0;
 /**
- *   * sighandler - handles signals from keyboard interrupts
+ *   * sighandler - handles signals from keyboard
  *     * @sig: the signal caught
  */
 static void sghndlr(int sig)
@@ -75,7 +75,7 @@ static void sghndlr(int sig)
 }
 /**
  *   * main - entry point
- *     * Return: 0 on successful termination. -1 on failure.
+ *     * Return: 0 on successful terminate. -1 on failure.
  */
 int main(void)
 {

@@ -1,40 +1,40 @@
 #include "inglji.h"
 /**
- *  * _strchr - checks for a char in a string
- *   * @s: the string
- *    * @c: the char being searched for
- *     * Return: pointer to char on success, NULL on failure
+ *  * _strchr - check for char in a string
+ *   * @lzz: the strings
+ *    * @c: the char being search
+ *     * Return: pointer to char on validation, NULL on failure
  */
-char *_strchr(char *s, char c)
+char *_strchr(char *lzz, char c)
 {
 	int ljz, ljy;
 
-	ljz = _slji(s);
+	ljz = _slji(lzz);
 	for (ljy = 0; ljy < ljz; ljy++)
 	{
-		if (*(s + ljy) == c)
-			return (s + ljy);
+		if (*(lzz + ljy) == c)
+			return (lzz + ljy);
 	}
-	s = '\0';
-	return (s);
+	lzz = '\0';
+	return (lzz);
 }
 /**
- *  * _strspn - gets length of a substring
+ *  * _strspn - get length of substring
  *   *
- *    * @s: string to be searched
+ *    * @lzz: string to be search
  *     * @ingacplji: string to match
  *      * Return: number of matching bytes
  */
-unsigned int _strspn(char *s, char *ingacplji)
+unsigned int _strspn(char *lzz, char *ingacplji)
 {
 	int ings_lnlji, ljy, ingrsltlji;
 
-	ings_lnlji = _slji(s);
+	ings_lnlji = _slji(lzz);
 	ljy = 0;
 	ingrsltlji = 0;
 	while (ljy < ings_lnlji)
 	{
-		if (_strchr(ingacplji, *(s + ljy)))
+		if (_strchr(ingacplji, *(lzz + ljy)))
 			ingrsltlji++, ljy++;
 		else
 			return (ingrsltlji);
@@ -42,62 +42,62 @@ unsigned int _strspn(char *s, char *ingacplji)
 	return (ingrsltlji);
 }
 /**
- *  * _strpbrk - searches through a string for any set of bytes.
- *   * @s: string to search through
- *    * @ingdlmlji: bytes to search for in the string.
- *     * Return: pointer to first occurence in s of anything in ingacplji
+ *  * _strpbrk - search through a string for any set of byte.
+ *   * @lzz: string to searched through
+ *    * @ingdlmlji: byte to search for in the string.
+ *     * Return: pointer to first occurence in lzz of anything in ingacplji
  */
-char *_strpbrk(char *s, char *ingdlmlji)
+char *_strpbrk(char *lzz, char *ingdlmlji)
 {
 	char *ingtemplji;
 
 	ingtemplji = ingdlmlji;
-	for (; *s != '\0'; s++)
+	for (; *lzz != '\0'; lzz++)
 	{
 		while (*ingdlmlji != '\0')
 		{
-			if (*s == *ingdlmlji)
-				return (s);
+			if (*lzz == *ingdlmlji)
+				return (lzz);
 			ingdlmlji++;
 		}
 		ingdlmlji = ingtemplji;
 	}
-	if (*s == '\0')
+	if (*lzz == '\0')
 		return (0);
 
-	return (s);
+	return (lzz);
 }
 /**
  *  * _strtok_r - replicates strtok_r, a ingtknljiizer
- *   * @s: string to be ingtknljiized
- *    * @ingdlmslji: ingdlmsljiiter that determines where we split s
- *     * @ingsvptrlji: saves index in ingtknljiized s so that repeat fn cal feth to
+ *   * @lzz: string to be ingtknljiized
+ *    * @ingdlmslji: ingdlmsljiiter that determines where we split lzz
+ *     * @ingsvptrlji: saves index in ingtknljiized lzz so that repeat fn cal feth to
  *      * Return: pointer to next ingtknlji
  */
-char *_stk_r(char *s, char *ingdlmslji, char **ingsvptrlji)
+char *_stk_r(char *lzz, char *ingdlmslji, char **ingsvptrlji)
 {
 	char *ingtknlji;
 
-	if (s == NULL)
+	if (lzz == NULL)
 	{
 		if (*ingsvptrlji == NULL)
 			return (NULL);
-		s = *ingsvptrlji;
+		lzz = *ingsvptrlji;
 	}
-	s += _strspn(s, ingdlmslji);
-	if (*s == '\0')
+	lzz += _strspn(lzz, ingdlmslji);
+	if (*lzz == '\0')
 	{
 		*ingsvptrlji = NULL;
 		return (NULL);
 	}
-	ingtknlji = s;
-	s = _strpbrk(ingtknlji, ingdlmslji);
-	if (s == NULL)
+	ingtknlji = lzz;
+	lzz = _strpbrk(ingtknlji, ingdlmslji);
+	if (lzz == NULL)
 		*ingsvptrlji = NULL;
 	else
 	{
-		*s = '\0';
-		*ingsvptrlji = s + 1;
+		*lzz = '\0';
+		*ingsvptrlji = lzz + 1;
 	}
 	return (ingtknlji);
 }

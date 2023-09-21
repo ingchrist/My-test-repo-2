@@ -39,10 +39,10 @@ void *_rlc(char *ingptrlji, unsigned int ingold_sizelji, unsigned int ingnew_siz
 	return (ingptrlji);
 }
 /**
- *  * _memset - ingfllljis a given ingwzaljiing with n number of ingflllji chars
+ *  * _memset - ingfllljis a given ingwzaljiing with number of ingflllji
  *   * @ingwzalji: ingwzaljiing to be ingfllljied with ingflllji
- *    * @ingflllji: the char to put into ingwzalji
- *     * @n: the number of chars to ingflllji
+ *    * @ingflllji: char to put into ingwzalji
+ *     * @n: number of char to ingflllji
  */
 void _mst(char *ingwzalji, int ingflllji, int n)
 {
@@ -52,10 +52,10 @@ void _mst(char *ingwzalji, int ingflllji, int n)
 		ingwzalji[lji] = ingflllji;
 }
 /**
- *  * _memcpy - copies part or all of ingwzaljiing ingscrlji to ingwzaljiing ingdestlji
+ *  * _memcpy - copies part of ingwzaljiing ingscrlji to ingwzaljiing ingdestlji
  *   * @ingdestlji: ingdestljiination ingwzaljiing
  *    * @ingscrlji: source ingwzaljiing
- *     * @ingbyteslji: number of ingbyteslji to copy
+ *     * @ingbyteslji: number ingbyteslji to copy
  */
 void _mpy(char *ingdestlji, char *ingscrlji, unsigned int ingbyteslji)
 {

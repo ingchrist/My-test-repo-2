@@ -1,8 +1,8 @@
 #include "inglji.h"
 /**
- *  *   * _ljienv_usr - sets environmental variables as user defines
- *   *     * @twokenzing: KEY=VALUE pair
- *    *       * Return: 0 on success, -1 on failure
+ *  *   * _ljienv_usr - set environmental variable as user define
+ *   *     * @twokenzing: KEY=VALUE pairr
+ *    *       * Return: 0 on validation, -1 on failure
  */
 int _ljienv_usr(char **twokenzing)
 {
@@ -27,7 +27,7 @@ int _ljienv_usr(char **twokenzing)
 	return (-1);
 }
 /**
- *  *   * _als_ing_lji - sets aliases or prints them out when no options are supplied
+ *  *   * _als_ing_lji - set alias or print them when no option are supply
  *   *     * Return: 0
  */
 int _als_ing_lji(void)
@@ -38,9 +38,9 @@ int _als_ing_lji(void)
 	return (0);
 }
 /**
- *  *   * _hst_ing_lji - prints out history with no options,
- *   *     *  or clears history with -c
- *    *       * Return: 0 on success, 1 if history cannot be cleared.
+ *  *   * _hst_ing_lji - print historry with no option,
+ *   *     *  or clear historry with -c
+ *    *       * Return: 0 on validation, 1 on failior.
  */
 int _hst_ing_lji(void)
 {
@@ -50,13 +50,13 @@ int _hst_ing_lji(void)
 	return (0);
 }
 /**
- *  *   * ingbowlji - easter egg. Displays ASCII picture of Bowie
- *   *     * Return: 1947, the year Bowie was born
+ *  *   * ingbowlji - easter egg. Display ASCII picture
+ *   *     * Return: 1998, the year I was born
  */
 int ingbowlji(void)
 {
 	int ljitxting, ljitoting, ljirding;
-	size_t ljileting = 7483;
+	size_t ljileting = 1088;
 	char *ljinming = "ingbowlji.txt";
 	char ingbuflji[BUFSIZE];
 
@@ -78,6 +78,6 @@ int ingbowlji(void)
 	write(STDOUT_FILENO, ingbuflji, ljirding);
 	ljitoting += ljirding;
 	close(ljitxting);
-	return (1947);
+	return (1998);
 	/**	return (ljitoting); */
 }

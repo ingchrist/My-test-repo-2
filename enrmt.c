@@ -1,7 +1,7 @@
 #include "inglji.h"
 /**
- *   * lstlji_frmlji_path - builds a linked list from PATH
- *     * Return: pointer to linked list
+ *   * lstlji_frmlji_path - build a linked list
+ *     * Return: pointer for linked list
  */
 env_t *lstlji_frmlji_path(void)
 {
@@ -30,7 +30,7 @@ env_t *lstlji_frmlji_path(void)
 	return (ingeplji);
 }
 /**
- *   * environ_linked_list - builds a linked list from PATH
+ *   * environ_linked_list - build linked list
  *     * Return: pointer to linked list
  */
 env_t *environ_linked_list(void)
@@ -50,10 +50,10 @@ env_t *environ_linked_list(void)
 	return (ingeplji);
 }
 /**
- *   * srch_ing - search through os to find a command
- *     * @ingcmdlji: command to search for
- *       * @inglji_path: path to search through
- *         * Return: String to absolute path if found, NULL if not
+ *   * srch_ing - search through os
+ *     * @ingcmdlji: command to search
+ *       * @inglji_path: path to the search
+ *         * Return: String to absolute path
  */
 char *srch_ing(char *ingcmdlji, env_t *inglji_path)
 {
